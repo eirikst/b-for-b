@@ -28,7 +28,7 @@ app.service("leagueService", function() {
   function init() {
 
     //Albania
-  /*  urls.push(new League("Super League", "Albania", "http://www.betexplorer.com/soccer/albania/super-league"));
+    urls.push(new League("Super League", "Albania", "http://www.betexplorer.com/soccer/albania/super-league"));
 
     //Argentina
     urls.push(new League("Superliga", "Argentina", "http://www.betexplorer.com/soccer/argentina/superliga/"));
@@ -46,13 +46,13 @@ app.service("leagueService", function() {
     //Belarus
     urls.push(new League("Vysshaya Liga", "Belarus", "http://www.betexplorer.com/soccer/belarus/vysshaya-liga"));
 
-*/    //Belgium
-  //  urls.push(new League("Jupiler League", "Belgium", "http://www.betexplorer.com/soccer/belgium/jupiler-league"));
+    //Belgium
+    urls.push(new League("Jupiler League", "Belgium", "http://www.betexplorer.com/soccer/belgium/jupiler-league"));
     urls.push(new League("Proximus League", "Belgium", "http://www.betexplorer.com/soccer/belgium/proximus-league"));
-  //  urls.push(new League("First Amateur Division", "Belgium", "http://www.betexplorer.com/soccer/belgium/first-amateur-division"));
+    urls.push(new League("First Amateur Division", "Belgium", "http://www.betexplorer.com/soccer/belgium/first-amateur-division"));
 
     //Bolivia
-  /*
+
     urls.push(new League("Division Professional", "Bolivia", "http://www.betexplorer.com/soccer/bolivia/division-profesional/"));
 
     //Bosnia
@@ -62,7 +62,7 @@ app.service("leagueService", function() {
     urls.push(new League("Premier League", "Brazil", "http://www.betexplorer.com/soccer/brazil/serie-a"));
     urls.push(new League("Premier League", "Brazil", "http://www.betexplorer.com/soccer/brazil/serie-b"));
     urls.push(new League("Premier League", "Brazil", "http://www.betexplorer.com/soccer/brazil/serie-c"));
-/*
+
     //Bulgaria
     urls.push(new League("Parva Liga", "Bulgaria", "http://www.betexplorer.com/soccer/bulgaria/parva-liga"));
     urls.push(new League("Vtora Liga", "Bulgaria", "http://www.betexplorer.com/soccer/bulgaria/vtora-liga"));
@@ -303,7 +303,7 @@ app.service("leagueService", function() {
 
     //Wales
     urls.push(new League("Premier League", "Wales", "http://www.betexplorer.com/soccer/wales/premier-league"));
-*/
+
 
     //145 ligaer
 
