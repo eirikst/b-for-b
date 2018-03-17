@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html ng-app="oddsgeir">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <link rel="stylesheet" href='css/custom.css'>
+  <link rel="icon" href="res/icons/oddsgeir_icon.png">
+
+  <title>B for bunnkamp</title>
+</head>
+
+<body class="container">
+
+  <!-- controller -->
+  <div ng-controller="brokenCtrl">
+
+    <!-- header -->
+    <div>
+      <h1 class="broken-header">
+        B for bunnkamp
+      </h1>
+    </div>
+    <!-- end header -->
+
+    <!-- filter panel -->
+        <div class="panel panel-default">
+          <div class="panel-heading"><h4>Filter</h4></div>
+          <div class="panel-body">
+
+    <!-- filter panel -->
+      <div class="broken-filter-div">
+        <!-- type of run -->
+        <div class="broken-filter-div" ng-init="applyFilter=true">
+          Filtrer&nbsp;&nbsp;
+          <label class="radio-inline"><input type="radio" name="applyFilterRadio" ng-model="applyFilter" ng-value="true">Ja</label>
+          <label class="radio-inline"><input type="radio" name="applyFilterRadio" ng-model="applyFilter" ng-value="false">Nei</label>
+        </div>
+        <br>
+        <p>
+        Max bunnkamp-score&nbsp;
+        <select ng-init="chosenScore=8;scoreArray = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];" ng-model="chosenScore" ng-options="nr for nr in scoreArray" ng-change="scoreChanged()">
+        </select>
+
+        </p>
+
+        <div class="broken-filter-div" ng-init="treDagerFrem=true">
+          Max tre dager frem&nbsp;&nbsp;
+          <label class="radio-inline"><input type="radio" name="treDagerFremRadio" ng-model="treDagerFrem" ng-value="true">Ja</label>
+          <label class="radio-inline"><input type="radio" name="treDagerFremRadio" ng-model="treDagerFrem" ng-value="false">Nei</label>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- end filter panel -->
+
+    <p>
+      <br>Kjente bugs:<br>
+      <i>- Tabeller som er delt i to, vil sannsynligvis bare bli samlet til en stor tabell, så bare den nederste tabellen vil inneholde bunnlag. Se MLS feks</i>
+    </p>
+
+    <div class="broken-filter-div" style="text-align: right">
+        <i>Oppdater</i>&nbsp;&nbsp;<button><img ng-click="refreshData()" src="res/icons/ic_update_black_48dp_2x.png" alt="Mountain View" style="width:30px;height:30px;"></button>
+    </div>
+
+
+
+
+
+
+    <!-- liste av brokens -->
+    <div>
+
+      <h4>Kamper:</h4>
+
+      <div>
+
+        <!-- team table -->
+        <span us-spinner="{radius:100, width:20, length: 100}" spinner-on="showSpinner"></span>
+        <table class="table table-striped">
+          <tbody>
+            <tr data-ng-repeat="match in matches | orderBy:'bunnscore' | brokenFilter:applyFilter:chosenScore:treDagerFrem">
+              <td>
+                <a target="_blank" href="{{match.url}}">{{match.printable()}}</a>
+                <!--div><span ng-click='team.hide=!team.hide'>{{team.nameStr}} ({{team.league.toString()}})</span> <a target="_blank" ng-href="{{redirectSummary(team.league)}}">Upcoming</a></div--><!--team name header-->
+
+
+
+              </td>
+              </tr>
+            </tbody>
+          </table>
+          <!-- end team table -->
+
+
+        </div>
+      </div>
+      <!-- end liste av brokens -->
+
+
+    </div>
+    <!-- end controller -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="js/angular/angular.min.js"></script>
+    <script src="js/angular/node_modules/angular-spinner/dist/angular-spinner.min.js"></script>
+    <script src="js/oddsgeir.js"></script>
+    <script src="js/res/q.js"></script>
+    <script src="js/services/leagueService.js"></script>
+    <script src="js/services/betexScraper.js"></script>
+    <script src="js/services/testDataService.js"></script>
+    <script src="js/services/sortingService.js"></script>
+    <script src="js/services/localStorageService.js"></script>
+    <script src="js/controllers/brokenCtrl.js"></script>
+    <script src="js/filters/brokenFilter.js"></script>
+    <script src="js/model/league.js"></script>
+    <script src="js/model/team.js"></script>
+    <script src="js/model/match.js"></script>
+  </body>
+
+  </html>
